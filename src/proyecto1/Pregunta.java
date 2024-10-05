@@ -9,8 +9,8 @@ package proyecto1;
  * @author jere
  */
 public abstract class Pregunta {
-    private int Peso;
-    private final String Text;
+    protected int Peso;
+    protected final String Text;
     
     
     //constructor
@@ -36,6 +36,3 @@ public abstract class Pregunta {
     //metodo abstracto
     public abstract Boolean buscar();
 }
-
-
-//hola 

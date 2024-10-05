@@ -19,39 +19,48 @@ public class Resp_cortas_Preguntas extends Pregunta {
         this.respuestaCorrecta = respuestaCorrecta.toUpperCase();
     }
     
+    
+    
     @Override
     public Boolean buscar(){
         int pin=0;
+        int intento=3;
+        System.out.println(Text);
         Scanner s = new Scanner(System.in);
-        System.out.println("Responda con T si es verdadero de lo contrario f");
+        
         while(pin==0){
-            try{
-                
-                String respuesta=s.next().toUpperCase();
-                if(respuesta==this.respuestaCorrecta){
-                    System.out.println("Pregunta correcta");
-                    return true;
-                    
-                    
-                    
-                    
-                    
-                    
+            
+            System.out.println("\nIngrese su respuesta");
+                try{
+                    String respuesta=s.next().toUpperCase();
+                    if(respuesta.equals(this.respuestaCorrecta)){
+                        System.out.println("\nPregunta correcta \n");
+                        return true;
+                        
+                    }
+                    else{
+                        intento--;
+                        if(intento==0){
+                            System.out.println("\nSe a quedado sin intentos\n");
+                            return false;
+                        }
+                        else{
+                            System.out.println("xxxxxxxxxxxxxxxx\nPregunta incorrecta le quedan "+intento+" intentos\nxxxxxxxxxxxxxxx");
+                            
+                        }
+                     
+                    }
+                }   
+                catch(Exception e){
+                    System.out.println("Dato invalido");
                 }
-                
-                else{
-                    return false;
-                }
-            }
-            catch(Exception e){
-                System.out.println("Dato invalido");
-            }
             
             
             
             
         }
         return null;
+        
     }
     
     
