@@ -33,10 +33,9 @@ public abstract class Pregunta {
     public String getText() {
         return Text;
     }
-    
-    
-    
-    
     //metodo abstracto
     public abstract Boolean buscar();
 }
+
+
+//hola 
