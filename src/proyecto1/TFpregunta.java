@@ -15,7 +15,7 @@ public class TFpregunta extends Pregunta {
 
     
     //Constructor
-    public TFpregunta(Boolean respuestaCorrecta, int Peso, String Text) {
+    public TFpregunta(String Text,Boolean respuestaCorrecta,int Peso) {
         super(Peso, Text);
         this.respuestaCorrecta = respuestaCorrecta;
     }

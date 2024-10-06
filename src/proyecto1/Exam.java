@@ -16,9 +16,6 @@ public class Exam {
     public Exam() {
         preguntas= new Pregunta[10];
     }
-    
-    
-    
     public void agregaPregunta(Pregunta p){        
         preguntas[contadorPreguntas]=p;
         contadorPreguntas++;
