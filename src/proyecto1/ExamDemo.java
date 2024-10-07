@@ -4,18 +4,19 @@
  */
 package proyecto1;
 
+import java.io.IOException;
+
 /**
  *
  * @author jere
  */
 public class ExamDemo {
-
     /**
      * @param args the command line arguments
      */
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         // crea un examen  con un total de 10 puntos: 8 preguntas de un punto y una de dos puntos 
         Exam miExam = new Exam(); 
@@ -36,5 +37,8 @@ public class ExamDemo {
         System.out.println("su resultado es " + puntaje);
         
     }   
+
+    
+    
     
 }
