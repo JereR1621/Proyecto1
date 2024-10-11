@@ -36,7 +36,7 @@ public class Exam {
         int contador = 1;
 
         for (int i = 0; i < contadorPreguntas; i++) {
-            System.out.println("\nPregunta N " + contador + "\n");
+            System.out.println("\nPregunta N " + contador);
             if (preguntas[i] != null && preguntas[i].buscar()) {
                 puntaje += preguntas[i].getPeso();
             }

@@ -21,33 +21,38 @@ public class TFpregunta extends Pregunta {
     }
     
     @Override
-    public Boolean buscar(){
-        Scanner s = new Scanner(System.in);
-        System.out.println(Text);
-        System.out.println("Responda con T si es verdadero de lo contrario f");
-        
-            try{
-                String respuesta=s.next().toUpperCase();
-                if(this.respuestaCorrecta==true && "T".equals(respuesta)){
+public Boolean buscar() {
+    Scanner s = new Scanner(System.in);
+    System.out.println(Text);
+    System.out.println("Responda con T si es verdadero o F si es falso");
+
+    while (true) { // Ciclo hasta que el usuario ingrese una opción válida
+        try {
+            String respuesta = s.next().toUpperCase();
+            // Verifica si la respuesta es válida
+            if ("T".equals(respuesta) || "F".equals(respuesta)) {
+                
+                if (this.respuestaCorrecta == "T".equals(respuesta)) {
                     System.out.println("Pregunta correcta");
                     return true;
-                }
-                else if(this.respuestaCorrecta==false && "F".equals(respuesta)){
+                }   
+                else if(this.respuestaCorrecta == "F".equals(respuesta)){
                     System.out.println("Pregunta correcta");
                     return true;
-                }
-                else{
+                        }
+                 else {
                     System.out.println("Respuesta incorrecta");
-                    
                     return false;
-                    
                 }
+            } else {
+                System.out.println("Opción invalida: " + respuesta);
             }
-            catch(Exception e){
-                System.out.println("Dato invalido");
-            }
-        return false;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+        }
     }
+}
+
     
     
 }
