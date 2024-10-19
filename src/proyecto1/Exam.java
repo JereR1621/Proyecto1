@@ -55,6 +55,7 @@ public class Exam {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
 
+        s.close(); // Cerrar el Scanner al final
         return puntaje;
     }
     

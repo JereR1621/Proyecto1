@@ -18,7 +18,6 @@ public class ExamDemo {
     
     
     public static void main(String[] args) throws IOException {
-        // TODO code application logic here
         
         //Creamos y agregamos las preguntas 
         Exam miExam = new Exam(); 
@@ -38,32 +37,30 @@ public class ExamDemo {
         
         //Rendir examen
         int p=0;
-        while(p==0){
-            Scanner n = new Scanner(System.in);
-            System.out.println("Elija una opcion: \n1-Rendir examen\n2-Salir");
-            try{
-                int seleccion=n.nextInt();
-                if(seleccion==1){
-                    int puntaje = miExam.darExam();
-                    System.out.println("su resultado es " + puntaje);
-                }
-                else if(seleccion==2){
-                    break;
-                }
-                else{
-                    System.out.println("\nSeleccion invalida");
-                
+        Scanner n = null; // Inicializamos fuera del ciclo
+        try {
+            n = new Scanner(System.in); // Scanner se crea una vez
+            while (p == 0) {
+                System.out.println("Elija una opcion: \n1-Rendir examen\n2-Salir");
+                try {
+                    int seleccion = n.nextInt();
+                    if (seleccion == 1) {
+                        int puntaje = miExam.darExam();
+                        System.out.println("su resultado es " + puntaje);
+                    } else if (seleccion == 2) {
+                        break;
+                    } else {
+                        System.out.println("\nSeleccion invalida");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error " + e);
+                    n.nextLine(); // Para limpiar la entrada y evitar loops infinitos en caso de excepción
                 }
             }
-            catch(Exception e){
-                System.out.println("Error "+e);
+        } finally {
+            if (n != null) {
+                n.close(); // Cerramos el scanner al finalizar
             }
+        }
     }
-        
-        
-    }   
-
-    
-    
-    
 }
