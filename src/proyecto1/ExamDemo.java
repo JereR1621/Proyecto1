@@ -37,9 +37,9 @@ public class ExamDemo {
         
         //Rendir examen
         int p=0;
-        Scanner n = null; // Inicializamos fuera del ciclo
+        Scanner n = new Scanner(System.in); 
         try {
-            n = new Scanner(System.in); // Scanner se crea una vez
+            
             while (p == 0) {
                 System.out.println("Elija una opcion: \n1-Rendir examen\n2-Salir");
                 try {
@@ -54,12 +54,12 @@ public class ExamDemo {
                     }
                 } catch (Exception e) {
                     System.out.println("Error " + e);
-                    n.nextLine(); // Para limpiar la entrada y evitar loops infinitos en caso de excepción
+                    
                 }
             }
         } finally {
             if (n != null) {
-                n.close(); // Cerramos el scanner al finalizar
+                n.close(); 
             }
         }
     }
