@@ -17,7 +17,7 @@ public class Resp_Cortas_Pregunta extends Pregunta {
 
     public Resp_Cortas_Pregunta(String Text, String respuestaCorrecta, int Peso) {
         super(Peso, Text);
-        this.respuestaCorrecta = respuestaCorrecta.toUpperCase().trim(); // Eliminar espacios en blanco
+        this.respuestaCorrecta = respuestaCorrecta.toUpperCase().trim(); // Formateamos la entrada
     }
 
     @Override
@@ -30,14 +30,13 @@ public class Resp_Cortas_Pregunta extends Pregunta {
         try {
             while (intentos > 0) {
                 System.out.println("Ingrese su respuesta:");
-                String respuesta = s.nextLine().toUpperCase().trim(); // Usar nextLine para respuestas de múltiples palabras
-
-                // Comparar la respuesta
+                String respuesta = s.nextLine().toUpperCase().trim(); 
+                
                 if (respuesta.equals(this.respuestaCorrecta)) {
                     System.out.println("Pregunta correcta");
                     return true; // Retorna verdadero si la respuesta es correcta
                 } else {
-                    intentos--; // Reduce el contador de intentos
+                    intentos--; 
                     if (intentos > 0) {
                         System.out.println("xxxxxxxxxxxxxxxx\nPregunta incorrecta. Le quedan " + intentos + " intentos.\nxxxxxxxxxxxxxxx");
                     } else {
@@ -46,9 +45,9 @@ public class Resp_Cortas_Pregunta extends Pregunta {
                 }
             }
         } finally {
-            s.close(); // Cerrar el Scanner
+            s.close(); 
         }
 
-        return false; // Retorna falso si se agotan los intentos
+        return false; 
     }
 }
