@@ -25,25 +25,26 @@ public class TFpregunta extends Pregunta {
         System.out.println(Text);
         System.out.println("Responda con T si es verdadero o F si es falso");
 
-        while (true) { // Ciclo hasta que el usuario ingrese una opción válida
+        while (true) { 
             try {
                 String respuesta = s.next().toUpperCase();
+                
                 // Verifica si la respuesta es válida
                 if ("T".equals(respuesta) || "F".equals(respuesta)) {
                     
                     if (this.respuestaCorrecta == "T".equals(respuesta)) {
                         System.out.println("Pregunta correcta");
-                        s.close(); // Cerrar Scanner antes de salir
+                        s.close(); 
                         return true;
                     }   
                     else if(this.respuestaCorrecta == "F".equals(respuesta)){
                         System.out.println("Pregunta correcta");
-                        s.close(); // Cerrar Scanner antes de salir
+                        s.close(); 
                         return true;
                     }
                     else {
                         System.out.println("Respuesta incorrecta");
-                        s.close(); // Cerrar Scanner antes de salir
+                        s.close();
                         return false;
                     }
                 } else {
@@ -53,6 +54,5 @@ public class TFpregunta extends Pregunta {
                 System.out.println("Error: " + e);
             }
         }
-        // No se requiere el bloque finally, el cierre ocurre al retornar
     }
 }
