@@ -15,10 +15,18 @@ public class Selec_Mul_Pregunta extends Pregunta{
     private String[] elecciones;
     private int respuestaCorrecta;
 
-    public Selec_Mul_Pregunta(String Text,String[] elecc,int respuestaC,int Peso) {
+    public Selec_Mul_Pregunta(String Text, String[] elecc, int respuestaC, int Peso) {
         super(Peso, Text);
-        this.elecciones=elecc;
-        this.respuestaCorrecta = respuestaC;
+        
+        // Validar que hay al menos 2 alternativas y la respuesta correcta está dentro del rango válido
+        if (elecc.length < 2 || respuestaC < 0 || respuestaC >= elecc.length) {
+            this.Peso = -1;
+            System.out.println("\nPregunta invalida \n");
+
+        } else {
+            this.elecciones = elecc;
+            this.respuestaCorrecta = respuestaC;
+        }
     }
     
     

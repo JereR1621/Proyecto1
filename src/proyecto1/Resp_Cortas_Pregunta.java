@@ -17,26 +17,27 @@ public class Resp_Cortas_Pregunta extends Pregunta {
 
     public Resp_Cortas_Pregunta(String Text, String respuestaCorrecta, int Peso) {
         super(Peso, Text);
-        this.respuestaCorrecta = respuestaCorrecta.toUpperCase().trim(); // Eliminar espacios en blanco
+        this.respuestaCorrecta = respuestaCorrecta.toUpperCase().trim();
     }
 
     @Override
     public Boolean buscar() {
+
         System.out.println(Text);
         Scanner s = new Scanner(System.in);
         
-        int intentos = 3; // Contador de intentos
-
+        int intentos = 3;
+    
         while (intentos > 0) {
             System.out.println("Ingrese su respuesta:");
-            String respuesta = s.nextLine().toUpperCase().trim(); // Usar nextLine para respuestas de múltiples palabras
-
-            // Comparar la respuesta
-            if (respuesta.equals(this.respuestaCorrecta)) {
+            String respuesta = s.nextLine().trim();
+    
+            // Usamos equalsIgnoreCase en lugar de equals
+            if (respuesta.equalsIgnoreCase(this.respuestaCorrecta)) {
                 System.out.println("Pregunta correcta");
-                return true; // Retorna verdadero si la respuesta es correcta
+                return true;
             } else {
-                intentos--; // Reduce el contador de intentos
+                intentos--;
                 if (intentos > 0) {
                     System.out.println("xxxxxxxxxxxxxxxx\nPregunta incorrecta. Le quedan " + intentos + " intentos.\nxxxxxxxxxxxxxxx");
                 } else {
@@ -44,6 +45,6 @@ public class Resp_Cortas_Pregunta extends Pregunta {
                 }
             }
         }
-        return false; // Retorna falso si se agotan los intentos
+        return false;
     }
 }

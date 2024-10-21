@@ -20,9 +20,18 @@ public class Exam {
     public Exam() {
         preguntas= new Pregunta[10];
     }
-    public void agregaPregunta(Pregunta p){        
-        preguntas[contadorPreguntas]=p;
-        contadorPreguntas++;
+    public void agregaPregunta(Pregunta p) {
+        if (contadorPreguntas < 10 && p != null && p.getPeso() >=0) {
+            preguntas[contadorPreguntas] = p;
+            contadorPreguntas++;
+            System.out.println("Pregunta "+p.getText()+" agregada correctamente.");
+        } else if (contadorPreguntas >= 10) {
+            System.out.println("No se puede agregar más preguntas");
+        } else if (p == null || p.getPeso() < 0) {
+            
+            System.out.println("No se pudo agregar la pregunta");
+            p=null;
+        }
     }
     
     
@@ -54,7 +63,7 @@ public class Exam {
         } catch (IOException e) {
             System.out.println("Error al escribir en el archivo: " + e.getMessage());
         }
-
+        
         return puntaje;
     }
     
