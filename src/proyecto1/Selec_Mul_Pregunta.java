@@ -33,39 +33,53 @@ public class Selec_Mul_Pregunta extends Pregunta{
     @Override
     public Boolean buscar() {
         System.out.println(Text);
-
+    
         // Imprimir las opciones
         char letra = 'A';
         for (int i = 0; i < elecciones.length; i++) {
             System.out.println(letra + ") " + elecciones[i]);
             letra++;
         }
-
+    
         Scanner s = new Scanner(System.in);
-        System.out.println("\nIngrese la opcion (A-" + (char) ('A' + elecciones.length - 1) + "): ");
-        
-
-        // Verificar si la entrada es válida
-        int pivote=0;
-        while(pivote==0){
-        String respuestaUsuario = s.next().toUpperCase(); // Convertir la entrada a mayúscula
-        if (respuestaUsuario.length() == 1 && respuestaUsuario.charAt(0) >= 'A' && respuestaUsuario.charAt(0) <= 'A' + elecciones.length - 1) {
-            // Convertir la letra ingresada en el índice correspondiente (A -> 0, B -> 1, etc.)
-            int respuestaIndex = respuestaUsuario.charAt(0) - 'A';
-
-            // Verificar si la respuesta es correcta
-            if (respuestaIndex == this.respuestaCorrecta) {
-                System.out.println("Pregunta correcta");
-                return true;
+        int intentos = 3; // Iniciamos con 3 intentos
+    
+        while (intentos > 0) {
+            System.out.println("\nIngrese la opcion (A-" + (char) ('A' + elecciones.length - 1) + "): ");
+            System.out.println("Intentos restantes: " + intentos);
+            
+            String respuestaUsuario = s.next().toUpperCase();
+    
+            if (respuestaUsuario.length() == 1 && respuestaUsuario.charAt(0) >= 'A' && 
+                respuestaUsuario.charAt(0) <= 'A' + elecciones.length - 1) {
+                
+                int respuestaIndex = respuestaUsuario.charAt(0) - 'A';
+    
+                if (respuestaIndex == this.respuestaCorrecta) {
+                    System.out.println("Pregunta correcta");
+                    return true;
+                } else {
+                    intentos--; // Reducimos intentos si la respuesta es incorrecta
+                    if (intentos > 0) {
+                        System.out.println("xxxxxxxxxxxxxxxx\nPregunta incorrecta. Le quedan " + intentos + " intentos.\nxxxxxxxxxxxxxxx");
+                    } else {
+                        System.out.println("Se ha quedado sin intentos. La respuesta correcta era " + 
+                                         elecciones[this.respuestaCorrecta]);
+                    }
+                }
             } else {
-                System.out.println("Pregunta incorrecta. La respuesta correcta es " + elecciones[this.respuestaCorrecta]);
-                return false;
+                intentos--; // Reducimos intentos si la opción es inválida
+                if (intentos > 0) {
+                    System.out.println("xxxxxxxxxxxxxxxx\nOpción inválida. Le quedan " + intentos + 
+                                     " intentos.\nPor favor, ingrese una letra válida entre A y " + 
+                                     (char) ('A' + elecciones.length - 1) + "\nxxxxxxxxxxxxxxx");
+                } else {
+                    System.out.println("Se ha quedado sin intentos. La respuesta correcta era " + 
+                                     elecciones[this.respuestaCorrecta]);
+                }
             }
-        } else {
-            System.out.println("Opcion invalida. Por favor, ingrese una letra valida entre A y " + (char) ('A' + elecciones.length - 1));
         }
-    }
-        return null;
+        return false; // Retornamos false si se agotan los intentos
     }
     
     

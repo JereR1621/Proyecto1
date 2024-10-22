@@ -35,10 +35,14 @@ public class ExamDemo {
         String PElec[] = {"Brasilia", "Rio de Janeiro", "Sao Paulo", "Blumenau"}; 
         miExam.agregaPregunta(new Selec_Mul_Pregunta("Cuál es la capital de Brasil?", PElec, 0, 1));
         miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1)); 
+        miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1));
+
+        
+        miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1)); 
         miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1)); 
 
-        miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1)); 
-        miExam.agregaPregunta(new Resp_Cortas_Pregunta("Cuál es la capital de Argentina", "Buenos Aires", 1)); 
+
+        
         
         //Rendir examen
         int p=0;
