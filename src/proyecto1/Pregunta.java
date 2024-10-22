@@ -9,8 +9,9 @@ package proyecto1;
  * @author jere
  */
 public abstract class Pregunta {
-    protected int Peso;
-    protected final String Text;
+    
+    private int Peso;
+    private final String Text;
     
     
     //constructor

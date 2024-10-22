@@ -20,7 +20,7 @@ public class Selec_Mul_Pregunta extends Pregunta{
         
         // Validar que hay al menos 2 alternativas y la respuesta correcta está dentro del rango válido
         if (elecc.length < 2 || respuestaC < 0 || respuestaC >= elecc.length) {
-            this.Peso = -1;
+            setPeso(-1);
             System.out.println("\nPregunta invalida \n");
 
         } else {
@@ -33,7 +33,7 @@ public class Selec_Mul_Pregunta extends Pregunta{
     @Override
     public Boolean buscar() {
         
-        System.out.println(Text);
+        System.out.println(getText());
     
         // Imprimir las opciones
         char letra = 'A';
@@ -43,7 +43,7 @@ public class Selec_Mul_Pregunta extends Pregunta{
         }
     
         Scanner s = new Scanner(System.in);
-        int intentos = 3; // Iniciamos con 3 intentos
+        int intentos = 3; 
     
         while (intentos > 0) {
             System.out.println("\nIngrese la opcion (A-" + (char) ('A' + elecciones.length - 1) + "): ");
@@ -59,28 +59,32 @@ public class Selec_Mul_Pregunta extends Pregunta{
                 if (respuestaIndex == this.respuestaCorrecta) {
                     System.out.println("Pregunta correcta");
                     return true;
-                } else {
-                    intentos--; // Reducimos intentos si la respuesta es incorrecta
+                } 
+                else if(respuestaIndex != this.respuestaCorrecta){
+                    System.out.println("Pregunta incorrecta");
+                    return false;
+
+                }
+                else {
+                    intentos--; 
                     if (intentos > 0) {
                         System.out.println("xxxxxxxxxxxxxxxx\nPregunta incorrecta. Le quedan " + intentos + " intentos.\nxxxxxxxxxxxxxxx");
                     } else {
-                        System.out.println("Se ha quedado sin intentos. La respuesta correcta era " + 
-                                         elecciones[this.respuestaCorrecta]);
+                        System.out.println("Se ha quedado sin intentos");
                     }
                 }
             } else {
-                intentos--; // Reducimos intentos si la opción es inválida
+                intentos--; 
                 if (intentos > 0) {
                     System.out.println("xxxxxxxxxxxxxxxx\nOpción inválida. Le quedan " + intentos + 
                                      " intentos.\nPor favor, ingrese una letra válida entre A y " + 
                                      (char) ('A' + elecciones.length - 1) + "\nxxxxxxxxxxxxxxx");
                 } else {
-                    System.out.println("Se ha quedado sin intentos. La respuesta correcta era " + 
-                                     elecciones[this.respuestaCorrecta]);
+                    System.out.println("Se ha quedado sin intentos");
                 }
             }
         }
-        return false; // Retornamos false si se agotan los intentos
+        return false;
     }
     
     

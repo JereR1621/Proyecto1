@@ -17,13 +17,13 @@ public class Resp_Cortas_Pregunta extends Pregunta {
 
     public Resp_Cortas_Pregunta(String Text, String respuestaCorrecta, int Peso) {
         super(Peso, Text);
-        this.respuestaCorrecta = respuestaCorrecta.toUpperCase().trim();
+        this.respuestaCorrecta = respuestaCorrecta.trim();
     }
 
     @Override
     public Boolean buscar() {
 
-        System.out.println(Text);
+        System.out.println(getText());
         Scanner s = new Scanner(System.in);
         
         int intentos = 3;

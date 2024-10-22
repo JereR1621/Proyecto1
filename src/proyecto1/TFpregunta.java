@@ -24,7 +24,7 @@ public class TFpregunta extends Pregunta {
     public Boolean buscar() {
 
         
-        System.out.println(Text);
+        System.out.println(getText());
         System.out.println("Responda con T si es verdadero o F si es falso");
         Scanner s = new Scanner(System.in);
         int intentos = 3; // Comienza con 3 intentos
@@ -46,12 +46,12 @@ public class TFpregunta extends Pregunta {
                     if (intentos > 0) {
                         System.out.println("Opción inválida: " + respuesta + ". Te quedan " + intentos + " intentos");
                     } else {
-                        System.out.println("Respuesta incorrecta, nisiquiera era una opcion ...");
+                        System.out.println("Respuesta incorrecta, ni siquiera era una opcion ...");
                         return false;
                     }
                 }
             } catch (Exception e) {
-                intentos--;  // Decrementamos intentos
+                intentos--;  
                 if (intentos > 0) {
                     System.out.println("Error: " + e + ". Te quedan " + intentos + " intentos");
                 } else {
