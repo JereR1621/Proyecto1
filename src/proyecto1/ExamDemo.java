@@ -17,8 +17,8 @@ public class ExamDemo {
      */
     
     
-    public static void main(String[] args) throws IOException {
-        // TODO code application logic here
+    public static void main(String[] args){
+        
         
         //Creamos y agregamos las preguntas 
         Exam miExam = new Exam(); 

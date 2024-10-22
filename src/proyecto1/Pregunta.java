@@ -18,9 +18,7 @@ public abstract class Pregunta {
         this.Peso = Peso;
         this.Text = Text;
     }
-    
-    
-    
+
     //getter-setter
     public int getPeso() {
         return Peso;

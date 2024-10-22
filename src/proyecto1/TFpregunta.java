@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author jere
  */
 public class TFpregunta extends Pregunta {
+
     private Boolean respuestaCorrecta;
 
     //Constructor
@@ -21,10 +22,11 @@ public class TFpregunta extends Pregunta {
     
     @Override
     public Boolean buscar() {
-        Scanner s = new Scanner(System.in);
+
+        
         System.out.println(Text);
         System.out.println("Responda con T si es verdadero o F si es falso");
-
+        Scanner s = new Scanner(System.in);
         int intentos = 3; // Comienza con 3 intentos
 
         while (intentos > 0) {  // Mientras queden intentos

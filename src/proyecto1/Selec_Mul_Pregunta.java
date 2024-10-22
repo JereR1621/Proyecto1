@@ -32,6 +32,7 @@ public class Selec_Mul_Pregunta extends Pregunta{
     
     @Override
     public Boolean buscar() {
+        
         System.out.println(Text);
     
         // Imprimir las opciones

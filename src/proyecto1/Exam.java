@@ -20,22 +20,24 @@ public class Exam {
     public Exam() {
         preguntas= new Pregunta[10];
     }
+    
     public void agregaPregunta(Pregunta p) {
-        if (contadorPreguntas < 10 && p != null && p.getPeso() >=0) {
+        if (contadorPreguntas < 10 && p.getPeso() >=0) {
             preguntas[contadorPreguntas] = p;
             contadorPreguntas++;
-            System.out.println("Pregunta "+p.getText()+" agregada correctamente.");
+            System.out.println("Pregunta numero "+contadorPreguntas+" "+p.getText()+" agregada correctamente.");
         } else if (contadorPreguntas >= 10) {
+
             System.out.println("No se puede agregar más preguntas");
         } else if (p == null || p.getPeso() < 0) {
             
-            System.out.println("No se pudo agregar la pregunta");
+            System.out.println("No se pudo agregar la pregunta\n");
             p=null;
         }
     }
     
     
-   public int darExam() throws IOException {
+   public int darExam() {
         System.out.println("\n---------------INICIO DEL EXAMEN-----------------\n");
         Scanner s = new Scanner(System.in);
         System.out.print("Nombre del Alumno: ");
@@ -56,7 +58,6 @@ public class Exam {
         String datos = String.format("%s - Puntaje: %d%n", nombre, puntaje);
         String archivo = "datos.txt";
 
-        
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(archivo, true))) { 
             escritor.write(datos);
             System.out.println("Datos del alumno guardados correctamente.");
